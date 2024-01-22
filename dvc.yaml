@@ -15,10 +15,10 @@ stages:
     outs:
     - data/features
   train:
-    cmd: python3 scr/train.py data/features data/models
+    cmd: python3 scr/train.py data/features data/models/model.pkl
     deps:
     - scr/train.py
     params:
     - train.alpha
     outs:
-    - data/models
+    - data/models/model.pkl

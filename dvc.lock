@@ -37,7 +37,7 @@ stages:
       size: 481545670
       nfiles: 2
   train:
-    cmd: python3 scr/train.py data/features data/models
+    cmd: python3 scr/train.py data/features data/models/model.pkl
     deps:
     - path: scr/train.py
       hash: md5
@@ -47,7 +47,7 @@ stages:
       params.yaml:
         train.alpha: 0.9
     outs:
-    - path: data/models
+    - path: data/models/model.pkl
       hash: md5
       md5: 17d7224fdefccf08a667dad36f60b2c7
       size: 982952
