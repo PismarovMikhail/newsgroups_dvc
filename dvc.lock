@@ -37,8 +37,13 @@ stages:
       size: 481545670
       nfiles: 2
   train:
-    cmd: python3 scr/train.py data/features data/models/model.pkl
+    cmd: python3 scr/train.py data/features model.pkl
     deps:
+    - path: data/features
+      hash: md5
+      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      size: 481545670
+      nfiles: 2
     - path: scr/train.py
       hash: md5
       md5: 2221d18315cfb0ff074739e78a57d4cc
@@ -47,7 +52,32 @@ stages:
       params.yaml:
         train.alpha: 0.9
     outs:
-    - path: data/models/model.pkl
+    - path: model.pkl
       hash: md5
       md5: 17d7224fdefccf08a667dad36f60b2c7
       size: 982952
+  evaluate:
+    cmd: python3 scr/evaluate.py model.pkl data/features scores.json plots.json
+    deps:
+    - path: data/features
+      hash: md5
+      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      size: 481545670
+      nfiles: 2
+    - path: model.pkl
+      hash: md5
+      md5: 17d7224fdefccf08a667dad36f60b2c7
+      size: 982952
+    - path: scr/evaluate.py
+      hash: md5
+      md5: 11d9dabde94952ff57dd205ba12b440c
+      size: 1352
+    outs:
+    - path: plots.json
+      hash: md5
+      md5: c9d64039c940d573a4fe49ad75061996
+      size: 70387
+    - path: scores.json
+      hash: md5
+      md5: ad5de534a1a63db196e036efe9419fdc
+      size: 27

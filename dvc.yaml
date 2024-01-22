@@ -15,10 +15,23 @@ stages:
     outs:
     - data/features
   train:
-    cmd: python3 scr/train.py data/features data/models/model.pkl
+    cmd: python3 scr/train.py data/features model.pkl
     deps:
+    - data/features
     - scr/train.py
     params:
     - train.alpha
     outs:
-    - data/models/model.pkl
+    - model.pkl
+  evaluate:
+    cmd: python3 scr/evaluate.py model.pkl data/features scores.json plots.json
+    deps:
+    - data/features
+    - model.pkl
+    - scr/evaluate.py
+    metrics:
+    - scores.json:
+        cache: false
+    plots:
+    - plots.json:
+        cache: false
