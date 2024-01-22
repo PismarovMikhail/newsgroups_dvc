@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python3 scr/prepare.py
+    deps:
+    - path: scr/prepare.py
+      hash: md5
+      md5: f31f04e59094b22c74bbed3f71dfdc0e
+      size: 1060
+    params:
+      params.yaml:
+        prepare.categories:
+        - comp.graphics
+        - sci.space
+    outs:
+    - path: data/prepared
+      hash: md5
+      md5: fdeb8bb1bb282ce0e10543983b4d828a.dir
+      size: 3720018
+      nfiles: 2
+  featurize:
+    cmd: python3 scr/featurize.py data/prepared data/features
+    deps:
+    - path: data/prepared
+      hash: md5
+      md5: fdeb8bb1bb282ce0e10543983b4d828a.dir
+      size: 3720018
+      nfiles: 2
+    - path: scr/featurize.py
+      hash: md5
+      md5: 62818d125e0d06e9c92c095c3c04c96d
+      size: 1688
+    outs:
+    - path: data/features
+      hash: md5
+      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      size: 481545670
+      nfiles: 2

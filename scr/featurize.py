@@ -35,7 +35,7 @@ def get_train_and_test_corpus(df_1, df_2):
     corpus_train = df_1["text"]
     corpus_test = df_2["text"]
 
-    return corpus_train.append(corpus_test) 
+    return corpus_train._append(corpus_test) 
 
 def append_labels_and_save_pkl(df, tfidf_matrix, filename):
     output_file = os.path.join(features_path, filename)

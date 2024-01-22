@@ -1,0 +1,16 @@
+stages:
+  prepare:
+    cmd: python3 scr/prepare.py
+    deps:
+    - scr/prepare.py
+    params:
+    - prepare.categories
+    outs:
+    - data/prepared
+  featurize:
+    cmd: python3 scr/featurize.py data/prepared data/features
+    deps:
+    - data/prepared
+    - scr/featurize.py
+    outs:
+    - data/features
