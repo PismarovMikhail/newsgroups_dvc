@@ -6,6 +6,11 @@ import pandas as pd
 # read params
 params = yaml.safe_load(open('params.yaml'))['prepare']
 
+#/home/ml-srv2-admin/newsgroups_dvc
+#/home/ml-srv2-admin/newsgroups_dvc/scr
+
+
+
 categories = params['categories']
 
 # create folder to save file
