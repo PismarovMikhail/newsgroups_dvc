@@ -14,3 +14,11 @@ stages:
     - scr/featurize.py
     outs:
     - data/features
+  train:
+    cmd: python3 scr/train.py data/features data/models
+    deps:
+    - scr/train.py
+    params:
+    - train.alpha
+    outs:
+    - data/models
