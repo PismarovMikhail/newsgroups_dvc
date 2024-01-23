@@ -24,14 +24,14 @@ stages:
     outs:
     - model.pkl
   evaluate:
-    cmd: python3 scr/evaluate.py model.pkl data/features scores.json plots.json
+    cmd: python3 evaluate/evaluate.py model.pkl data/features score/scores.json score/plots.json
     deps:
     - data/features
     - model.pkl
-    - scr/evaluate.py
+    - evaluate/evaluate.py
     metrics:
-    - scores.json:
+    - score/scores.json:
         cache: false
     plots:
-    - plots.json:
+    - score/plots.json:
         cache: false

@@ -15,7 +15,7 @@ stages:
     outs:
     - path: data/prepared
       hash: md5
-      md5: fdeb8bb1bb282ce0e10543983b4d828a.dir
+      md5: 6b83a75bf78f9dc2c8830e4ae2732c77.dir
       size: 3720018
       nfiles: 2
   featurize:
@@ -23,7 +23,7 @@ stages:
     deps:
     - path: data/prepared
       hash: md5
-      md5: fdeb8bb1bb282ce0e10543983b4d828a.dir
+      md5: 6b83a75bf78f9dc2c8830e4ae2732c77.dir
       size: 3720018
       nfiles: 2
     - path: scr/featurize.py
@@ -33,7 +33,7 @@ stages:
     outs:
     - path: data/features
       hash: md5
-      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      md5: 48f78a2d3f2ba037da684f6454901ca1.dir
       size: 481545670
       nfiles: 2
   train:
@@ -41,7 +41,7 @@ stages:
     deps:
     - path: data/features
       hash: md5
-      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      md5: 48f78a2d3f2ba037da684f6454901ca1.dir
       size: 481545670
       nfiles: 2
     - path: scr/train.py
@@ -54,30 +54,30 @@ stages:
     outs:
     - path: model.pkl
       hash: md5
-      md5: 6ca562caec2e67e70459f50da0fbbabe
-      size: 982952
+      md5: 1d4e0f5430b378cc2fdf3cc56d6a0ec8
+      size: 982958
   evaluate:
-    cmd: python3 scr/evaluate.py model.pkl data/features scores.json plots.json
+    cmd: python3 evaluate/evaluate.py model.pkl data/features score/scores.json score/plots.json
     deps:
     - path: data/features
       hash: md5
-      md5: a8513ff86ce8ddc9e740c1db30895e21.dir
+      md5: 48f78a2d3f2ba037da684f6454901ca1.dir
       size: 481545670
       nfiles: 2
-    - path: model.pkl
-      hash: md5
-      md5: 6ca562caec2e67e70459f50da0fbbabe
-      size: 982952
-    - path: scr/evaluate.py
+    - path: evaluate/evaluate.py
       hash: md5
       md5: 11d9dabde94952ff57dd205ba12b440c
       size: 1352
-    outs:
-    - path: plots.json
+    - path: model.pkl
       hash: md5
-      md5: 54e1e720ab9cc686042d76fe0e938008
-      size: 70232
-    - path: scores.json
+      md5: 1d4e0f5430b378cc2fdf3cc56d6a0ec8
+      size: 982958
+    outs:
+    - path: score/plots.json
+      hash: md5
+      md5: e2b096bb59f3e37e2e90edbeb303211c
+      size: 70231
+    - path: score/scores.json
       hash: md5
       md5: cdcca4a417bb0fd000eb6fcf65df1f23
       size: 27
