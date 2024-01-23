@@ -8,7 +8,7 @@
 ### [5 Результат](https://github.com/PismarovMikhail/newsgroups_dvc/edit/main/README.md)
 
 ### 1 Описание проекта
-Проект представляет собой создание конвеера для проведения экспериментов с различными наборами параметров и сравнения метрик между собой для 
+Проект представляет собой создание конвеера для проведения экспериментов с различными наборами параметров и сравнения метрик между собой 
 при классификации набора данных 20newsgroups. Чтобы упростить этап оценки, будем использовать только две категории. В качестве инструмента используется dvc.
 
 :arrow_up:[к оглавлению](https://github.com/PismarovMikhail/newsgroups_dvc/tree/main/README.md#Оглавление)
@@ -25,29 +25,49 @@
 
 Имеется 20 файлов, содержащих по одному документу на каждую группу новостей. В этом наборе данных дубликаты сообщений были удалены, а исходные сообщения содержат всего 18828 сообщений. Каждое сообщение в файле представляет собой текст некоторого документа группы новостей, который был опубликован в этой группе новостей.
 Каждое новое сообщение в связанном файле начинается с четырех заголовков:
+
 Группа новостей: alt.newsgroup
+
 Идентификатор_документа: xxxxxx
+
 От: Кот
+
 Тема: Мяу-мяу-мяу
+
 Организация
 
-Список из 20 групп новостей::
+## Список 20 групп новостей::
 
 comp.graphics
+
 comp.os.ms-windows.misc
+
 comp.sys.ibm.pc.hardware
+
 comp.sys.mac.hardware
+
 comp.windows.x rec.autos
+
 rec.motorcycles
+
 rec.sport.baseball
+
 rec.sport.hockey sci.crypt
+
 sci.electronics
+
 sci.med
+
 sci.space
+
 misc.forsale talk.politics.misc
+
 talk.politics.guns
+
 talk.politics.mideast talk.religion.misc
+
 alt.atheism
+
 soc.religion.christian
 
 :arrow_up:[к оглавлению](https://github.com/PismarovMikhail/newsgroups_dvc/tree/main/README.md#Оглавление)
